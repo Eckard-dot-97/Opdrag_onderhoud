@@ -41,6 +41,7 @@ Full-stack assignment starter: React (Vite), Express, MySQL, and PokeAPI.
 
    Install MySQL first if needed: https://dev.mysql.com/downloads/mysql/
 
+
 3. Start the apps (two terminals):
 
    ```bash
