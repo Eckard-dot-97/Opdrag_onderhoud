@@ -6,7 +6,8 @@ Full-stack assignment starter: React (Vite), Express, MySQL, and PokeAPI.
 
 **Publish to GitHub:** on Windows, run **`GITHUB-ONE-CLICK.cmd`** in this directory (repository root). macOS/Linux: see **`docs/submission-guide.md`**.
 
-## Ownership
+## Ownership:** 
+Marc Breedt
 
 **Original starter:** `NOTICE` names the copyright holder(s). `LICENSE` permits **non-commercial** use only and requires this section to stay accurate.
 
@@ -112,7 +113,7 @@ Content-Type: application/json
 | Field | Value |
 |-------|-------|
 | Email | test1@test.com |
-| Password | Test1234! |
+| Password | Pokemon123! |
 
 ### Steps to run locally
 
