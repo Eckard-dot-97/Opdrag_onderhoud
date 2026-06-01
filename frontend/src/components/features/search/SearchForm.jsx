@@ -1,44 +1,38 @@
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-/**
- * Search input — commits query to the URL (`?q=`) via the history API.
- * No full page load: React Router updates location; parent layout stays mounted.
- */
 export function SearchForm() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const committed = searchParams.get('q') ?? '';
-  const [value, setValue] = useState(committed);
-
-  useEffect(() => {
-    setValue(committed);
-  }, [committed]);
+  const [q, setQ] = useState('');
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    const v = value.trim();
-    if (v) {
-      setSearchParams({ q: v });
-    } else {
-      setSearchParams({});
-    }
+    const trimmed = q.trim();
+    if (trimmed) navigate(`/search?q=${encodeURIComponent(trimmed)}`);
   }
 
   return (
-    <form onSubmit={handleSubmit} role="search" aria-label="Soek Pokémon">
-      <label htmlFor="search-q" className="sr-only">
-        Soekterm
-      </label>
-      <input
-        id="search-q"
-        name="q"
-        type="search"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Soek volgens naam…"
-        style={{ marginRight: '0.5rem', minWidth: '16rem' }}
-      />
-      <button type="submit">Soek</button>
-    </form>
+    <div style={s.screenWrap}>
+      <div style={s.screenLabel}>&#9654; SEARCH MODE — ENTER POKEMON NAME</div>
+      <form onSubmit={handleSubmit} style={s.form}>
+        <input
+          style={s.input}
+          type="search"
+          placeholder="e.g. pikachu_"
+          value={q}
+          onChange={e => setQ(e.target.value)}
+          autoFocus
+        />
+        <button style={s.btn} type="submit">GO</button>
+      </form>
+    </div>
   );
 }
+
+const s = {
+  screenWrap: { background: '#0f380f', border: '4px solid #306230', borderRadius: 4, padding: '1rem', marginBottom: '1.5rem' },
+  screenLabel: { color: '#9bbc0f', fontSize: 8, marginBottom: '0.75rem', letterSpacing: 1 },
+  form: { display: 'flex', gap: 8 },
+  input: { flex: 1, background: '#1a4a1a', border: '2px solid #306230', color: '#9bbc0f', fontSize: 9, padding: '8px 10px', borderRadius: 2, outline: 'none' },
+  btn: { background: '#cc0000', border: '2px solid #880000', color: '#fff', fontSize: 9, padding: '8px 16px', borderRadius: 2, letterSpacing: 1 },
+};

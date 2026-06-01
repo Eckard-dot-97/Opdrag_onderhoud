@@ -10,9 +10,19 @@ Full-stack assignment starter: React (Vite), Express, MySQL, and PokeAPI.
 
 **Original starter:** `NOTICE` names the copyright holder(s). `LICENSE` permits **non-commercial** use only and requires this section to stay accurate.
 
-**Additions and changes in this clone:** *(complete before any submission — list paths or areas you authored or materially changed; state that you claim authorship only for those parts. Original starter ownership is unchanged.)*
+**Additions and changes in this clone:**
 
-- *Example: `backend/src/services/*.js`, `frontend/src/components/features/*`, `database/schema.sql` — implemented and owned by [your name or identifier] for this submission.*
+- `backend/src/services/auth.service.js` — implemented and owned by Marc Breedt for this submission.
+- `backend/src/services/pokeapi.service.js` — implemented and owned by Marc Breedt for this submission.
+- `backend/src/services/collection.service.js` — implemented and owned by Marc Breedt for this submission.
+- `backend/src/controllers/auth.controller.js` — implemented and owned by Marc Breedt for this submission.
+- `backend/src/controllers/pokemon.controller.js` — implemented and owned by Marc Breedt for this submission.
+- `backend/src/controllers/backpack.controller.js` — implemented and owned by Marc Breedt for this submission.
+- `backend/src/controllers/team.controller.js` — implemented and owned by Marc Breedt for this submission.
+- `frontend/src/components/features/*` — implemented and owned by Marc Breedt for this submission.
+- `frontend/src/components/layout/AppLayout.jsx` — modified and owned by Marc Breedt for this submission.
+- `database/schema.sql` — implemented and owned by Marc Breedt for this submission.
+- `docs/architecture.md` — written and owned by Marc Breedt for this submission.
 
 ## Requirements
 
@@ -25,45 +35,35 @@ Full-stack assignment starter: React (Vite), Express, MySQL, and PokeAPI.
 
 1. Install backend dependencies (required for `scripts/setup.js`):
 
-   ```bash
+```bash
    cd backend
    npm install
    cd ..
-   ```
+```
 
 2. Run the database setup script from the repository root:
 
-   ```bash
+```bash
    node scripts/setup.js
-   ```
+```
 
    You will be prompted for a MySQL admin account (often `root`). The script creates the database, an application user with a generated password, writes `backend/.env`, and runs `database/schema.sql`.
 
    Install MySQL first if needed: https://dev.mysql.com/downloads/mysql/
 
-
 3. Start the apps (two terminals):
 
-   ```bash
+```bash
    cd backend && npm run dev
-   ```
+```
 
-   ```bash
+```bash
    cd frontend && npm install && npm run dev
-   ```
+```
 
 4. Open http://localhost:5173
 
 ## Layout
-
-```
-.
-├── scripts/setup.js       Database + backend/.env (run once)
-├── database/schema.sql    Your DDL (replace the starter example)
-├── backend/               Express API — see backend/README.md
-└── frontend/              Vite + React — see frontend/README.md
-```
-
 Details: `docs/project-map.md`.
 
 ## HTTP API
@@ -97,24 +97,22 @@ Content-Type: application/json
 
 ## Runtime configuration
 
-Fill every cell before submission. Anyone cloning the repository must be able to run the stack from this table alone — `backend/.env` is not committed.
-
 | Item | Value |
 |------|-------|
 | Backend base URL | http://localhost:3001 |
 | Frontend dev URL | http://localhost:5173 |
-| MySQL host | *(e.g. 127.0.0.1)* |
-| MySQL port | *(e.g. 3306)* |
-| Database name | |
-| Database user | |
-| Database password | |
+| MySQL host | 127.0.0.1 |
+| MySQL port | 3306 |
+| Database name | pokemon_spanbouer |
+| Database user | pokemon_app |
+| Database password | nv5ErJ8hcG7w9jHnbGLt |
 
 ### Test account
 
 | Field | Value |
 |-------|-------|
-| Email | |
-| Password | |
+| Email | test1@test.com |
+| Password | Test1234! |
 
 ### Steps to run locally
 
