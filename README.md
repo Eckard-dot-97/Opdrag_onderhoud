@@ -134,3 +134,4 @@ cd frontend && npm run build
 Serve `frontend/dist/` with any static host. Point the API at your deployed backend; set `VITE_API_BASE_URL` before `npm run build` if the API is not proxied.
 
 Run the backend with `NODE_ENV=production` and a strong `JWT_SECRET`.
+# pokemon-spanbouer
